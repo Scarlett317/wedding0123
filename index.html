@@ -172,7 +172,7 @@
         </div>
     </section>
 
-    <section id="countdown" class="py-20 px-4 sm:px-6 bg-morandi-bg relative">
+    <section id="countdown" class="pt-20 pb-4 sm:py-20 px-4 sm:px-6 bg-morandi-bg relative">
         <div class="max-w-4xl mx-auto text-center">
             <span class="font-en-serif text-xs uppercase tracking-[0.3em] text-morandi-sageDark block mb-2 font-semibold">The Countdown</span>
             <h2 class="font-en-serif text-3xl sm:text-4xl text-morandi-textMain tracking-wide mb-12"></h2>
@@ -207,9 +207,10 @@
                     <span class="font-en-serif text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Secs</span>
                 </div>
             </div>
+        </div>
     </section>
 
-    <section id="about" class="py-20 px-4 sm:px-6 bg-morandi-bg">
+    <section id="about" class="pt-4 pb-20 sm:py-20 px-4 sm:px-6 bg-morandi-bg">
         <div class="max-w-3xl mx-auto">
             <!-- Section Title -->
             <div class="text-center mb-8">
@@ -227,13 +228,20 @@
                 <div class="absolute -top-10 -left-10 w-32 h-32 bg-morandi-warm/10 rounded-full blur-2xl"></div>
                 <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-morandi-sage/10 rounded-full blur-2xl"></div>
                 
+                <!-- 新郎新娘介紹上方新增圖片（限制寬度不超過謝汶甫、林雅惠字樣，並確保行動裝置不跑版） -->
+                <div class="max-w-[150px] sm:max-w-[240px] w-full mx-auto mb-6 flex justify-center items-center">
+                    <img src="https://i.postimg.cc/5tDfH216/Chat-GPT-Image-2026nian8yue27ri-xia-wu02-27-06.png" 
+                         alt="謝汶甫 & 林雅惠" 
+                         class="w-full h-auto object-contain max-w-full">
+                </div>
+
                 <!-- 新郎新娘並排顯示區域 -->
                 <div class="flex flex-row items-center justify-center gap-3 sm:gap-8 mb-10">
                     <!-- Groom V-Card -->
                     <div class="flex flex-col items-center space-y-1 sm:space-y-2">
                         <span class="font-en-serif text-2xl sm:text-3xl font-medium text-[#7B9287]">謝汶甫</span>
                         <span class="font-en-serif text-lg sm:text-2xl font-medium text-morandi-warmDark">Krata</span>
-                        <span class="text-[10px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">GROOM · 新郎</span>
+                        <span class="text-[12px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">GROOM · 新郎</span>
                     </div>
 
                     <div class="text-morandi-warm text-xl sm:text-2xl font-serif px-1">&</div>
@@ -242,7 +250,7 @@
                     <div class="flex flex-col items-center space-y-1 sm:space-y-2">
                         <span class="font-en-serif text-2xl sm:text-3xl font-medium text-[#7B9287]">林雅惠</span>
                         <span class="font-en-serif text-lg sm:text-2xl font-medium text-morandi-warmDark">Miya</span>
-                        <span class="text-[10px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">BRIDE · 新娘</span>
+                        <span class="text-[12px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">BRIDE · 新娘</span>
                     </div>
                 </div>
 
@@ -276,15 +284,15 @@
                                 <i class="fa-solid fa-church text-lg"></i>
                             </div>
                             <div>
-                                <h3 class="font-en-serif text-xl text-morandi-textMain font-semibold">儀式資訊</h3>
-                                <p class="text-xs text-morandi-textMuted tracking-widest">The Holy Ceremony</p>
+                                <h3 class="font-en-serif text-lg sm:text-xl text-morandi-textMain font-semibold">儀式資訊</h3>
+                                <p class="text-[10px] sm:text-xs text-morandi-textMuted tracking-widest">The Holy Ceremony</p>
                             </div>
                         </div>
 
                         <!-- 右側：婚禮日期 -->
                         <div class="text-right">
                             <p class="font-en-serif text-xl sm:text-3xl text-morandi-sageDark tracking-wider font-semibold">2027.01.23</p>
-                            <p class="font-en-serif text-xs text-morandi-textMuted tracking-[0.2em]">SATURDAY</p>
+                            <p class="font-en-serif text-[10px] sm:text-xs text-morandi-textMuted tracking-[0.2em]">SATURDAY</p>
                         </div>
                     </div>
 
@@ -324,8 +332,8 @@
                             <i class="fa-solid fa-utensils text-lg"></i>
                         </div>
                         <div>
-                            <h3 class="font-en-serif text-xl text-morandi-textMain font-semibold">午宴資訊</h3>
-                            <p class="text-xs text-morandi-textMuted tracking-widest">The Wedding Banquet</p>
+                            <h3 class="font-en-serif text-lg sm:text-xl text-morandi-textMain font-semibold">午宴資訊</h3>
+                            <p class="text-[10px] sm:text-xs text-morandi-textMuted tracking-widest">The Wedding Banquet</p>
                         </div>
                     </div>
 
@@ -456,42 +464,24 @@
                         </select>
                     </div>
 
-                    <!-- Field 4: Attendance Count -->
-                    <div class="grid grid-cols-2 gap-3 sm:gap-6">
-                        <div>
-                            <label for="entry_1285861050" class="block mb-1">
-                                <span class="text-sm uppercase tracking-wider font-semibold text-morandi-textMain">儀式人數</span>
+                    <!-- Field 4: Attendance Count (已移除儀式人數欄位) -->
+                    <div>
+                        <label for="entry_422058548" class="block mb-1">
+                            <span class="text-sm uppercase tracking-wider font-semibold text-morandi-textMain">午宴人數
+                                <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">BANQUET GUESTS</span> 
                                 <span class="text-red-400">*</span>
-                                <span class="block font-en-serif text-[11px] tracking-wider text-morandi-textMuted mt-0.5">CEREMONY GUESTS</span>
                             </label>
-                            <input type="number" 
-                                   id="entry_1285861050" 
-                                   name="entry.1285861050"
-                                   min="0" 
-                                   max="10" 
-                                   required 
-                                   placeholder="人數"
-                                   class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
-                        </div>
-
-                        <div>
-                            <label for="entry_422058548" class="block mb-1">
-                                <span class="text-sm uppercase tracking-wider font-semibold text-morandi-textMain">午宴人數</span>
-                                <span class="text-red-400">*</span>
-                                <span class="block font-en-serif text-[11px] tracking-wider text-morandi-textMuted mt-0.5">BANQUET GUESTS</span>
-                            </label>
-                            <input type="number" 
-                                   id="entry_422058548" 
-                                   name="entry.422058548" 
-                                   min="0" 
-                                   max="10" 
-                                   required 
-                                   placeholder="人數"
-                                   oninput="handleGuestCountChange(this.value)"
-                                   class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
-                        </div>
+                        <input type="number" 
+                               id="entry_422058548" 
+                               name="entry.422058548" 
+                               min="0" 
+                               max="10" 
+                               required 
+                               placeholder="人數"
+                               oninput="handleGuestCountChange(this.value)"
+                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
                     </div>
-                    <p class="text-xs text-morandi-textMuted mt-1">※ 若無法出席，請填寫數字 0。</p>
+                    <p class="text-xs text-morandi-textMuted mt-1 whitespace-nowrap">※ 若無法出席，請填寫"0"；填寫出席人數後，請繼續作答。</p>
 
                     <!-- Dynamic Section -->
                     <div id="dynamic-guest-details" class="space-y-6 hidden border-t border-gray-100 pt-6">
@@ -503,7 +493,7 @@
                             <input type="text" 
                                    id="entry_1785125515" 
                                    name="entry.1785125515" 
-                                   placeholder="請輸入兒童人數與年齡（若無請填無）"
+                                   placeholder="請填寫兒童人數及年齡，例如：2位（3歲、7歲）。"
                                    class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
                         </div>
 

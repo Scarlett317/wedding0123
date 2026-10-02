@@ -2,7 +2,7 @@
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Karta & Miya - 婚禮邀請函 Wedding Invitation</title>
     
     <!-- Tailwind CSS -->
@@ -47,15 +47,22 @@
             font-family: 'Noto Serif TC', serif;
             background-color: #E8F0E8;
             color: #3a3836;
+            overflow-x: hidden;
         }
 
         .font-en-serif {
             font-family: 'Cormorant Garamond', serif;
         }
 
+        /* Prevent awkward line-breaks on mobile */
+        .break-keep {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
         /* Glassmorphism Header */
         .glass-header {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(212, 163, 115, 0.15);
@@ -77,13 +84,6 @@
         /* Hero Text Shadow */
         .text-glow {
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-        }
-
-        /* Accordion transition */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* No wrap helper */
@@ -115,9 +115,9 @@
             </a>
 
             <!-- Mobile Date Display (僅在智慧型裝置顯示) -->
-            <div class="md:hidden font-en-serif text-xl tracking-[0.2em] font-bold text-[#6b8277] select-none">
-                01.23.2027</div>
-
+            <div class="md:hidden font-en-serif text-lg sm:text-xl tracking-[0.2em] font-bold text-[#6b8277] select-none">
+                01.23.2027
+            </div>
 
             <!-- Desktop Navigation Links (僅在電腦版顯示) -->
             <nav class="hidden md:flex items-center space-x-8 text-sm sm:text-base tracking-wider text-morandi-textMain">
@@ -147,20 +147,17 @@
         
         <!-- Gradient Vignette -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60"></div>
-        <!-- Subtitle/Date -->
-            <p class="font-serif text-lg sm:text-2xl tracking-[0.3em] uppercase text-morandi-warmLight mb-4 font-light drop-shadow-md">
-                </p>
 
         <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto flex flex-col items-center mt-20 sm:mt-28">
-            <!-- Main Title -->
-            <h1 class="font-en-serif text-3xl sm:text-7xl md:text-8xl font-bold tracking-wider mb-6 text-glow whitespace-nowrap">
-                Karta Hsieh <span class="text-xl sm:text-6xl morandi-warmLight font-italic">&</span> Miya Lin
+            <!-- Main Title with Mobile Responsive Scaling -->
+            <h1 class="font-en-serif text-2xl sm:text-6xl md:text-8xl font-bold tracking-wider mb-6 text-glow whitespace-nowrap">
+                Karta Hsieh <span class="text-lg sm:text-5xl morandi-warmLight font-italic">&</span> Miya Lin
             </h1>
 
             <div class="w-16 h-[1px] bg-white/60 mb-6"></div>
 
             <!-- Slogan -->
-            <p class="text-lg sm:text-2xl font-light tracking-[0.2em] text-gray-100 max-w-xl mx-auto leading-relaxed drop-shadow-sm">
+            <p class="text-base sm:text-2xl font-light tracking-[0.2em] text-gray-100 max-w-xl mx-auto leading-relaxed drop-shadow-sm break-keep">
                 共步下一個里程碑
             </p>
 
@@ -172,39 +169,38 @@
         </div>
     </section>
 
-    <section id="countdown" class="pt-20 pb-4 sm:py-20 px-4 sm:px-6 bg-morandi-bg relative">
+    <section id="countdown" class="pt-20 pb-8 sm:py-20 px-3 sm:px-6 bg-morandi-bg relative">
         <div class="max-w-4xl mx-auto text-center">
             <span class="font-en-serif text-xs uppercase tracking-[0.3em] text-morandi-sageDark block mb-2 font-semibold">The Countdown</span>
-            <h2 class="font-en-serif text-3xl sm:text-4xl text-morandi-textMain tracking-wide mb-12"></h2>
 
             <!-- Countdown Cards Container -->
-            <div class="grid grid-cols-4 gap-2 sm:gap-6 max-w-3xl mx-auto mb-0">
+            <div class="grid grid-cols-4 gap-1.5 sm:gap-6 max-w-3xl mx-auto mb-0">
                 <!-- Days Card -->
-                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2.5 sm:p-5 relative overflow-hidden flex flex-col items-center justify-center">
-                    <span id="days" class="font-en-serif text-2xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
-                    <div class="w-6 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
-                    <span class="font-en-serif text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Days</span>
+                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2 sm:p-5 relative overflow-hidden flex flex-col items-center justify-center">
+                    <span id="days" class="font-en-serif text-xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
+                    <div class="w-5 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
+                    <span class="font-en-serif text-[9px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Days</span>
                 </div>
 
                 <!-- Hours Card -->
-                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2.5 sm:p-7 relative overflow-hidden flex flex-col items-center justify-center">
-                    <span id="hours" class="font-en-serif text-2xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
-                    <div class="w-6 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
-                    <span class="font-en-serif text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Hours</span>
+                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2 sm:p-5 relative overflow-hidden flex flex-col items-center justify-center">
+                    <span id="hours" class="font-en-serif text-xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
+                    <div class="w-5 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
+                    <span class="font-en-serif text-[9px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Hours</span>
                 </div>
 
                 <!-- Minutes Card -->
-                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2.5 sm:p-7 relative overflow-hidden flex flex-col items-center justify-center">
-                    <span id="minutes" class="font-en-serif text-2xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
-                    <div class="w-6 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
-                    <span class="font-en-serif text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Mins</span>
+                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2 sm:p-5 relative overflow-hidden flex flex-col items-center justify-center">
+                    <span id="minutes" class="font-en-serif text-xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
+                    <div class="w-5 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
+                    <span class="font-en-serif text-[9px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Mins</span>
                 </div>
 
                 <!-- Seconds Card -->
-                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2.5 sm:p-7 relative overflow-hidden flex flex-col items-center justify-center">
-                    <span id="seconds" class="font-en-serif text-2xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
-                    <div class="w-6 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
-                    <span class="font-en-serif text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Secs</span>
+                <div class="shimmer-card rounded-xl sm:rounded-2xl p-2 sm:p-5 relative overflow-hidden flex flex-col items-center justify-center">
+                    <span id="seconds" class="font-en-serif text-xl sm:text-6xl font-semibold text-morandi-warmDark leading-none mb-1 sm:mb-3">00</span>
+                    <div class="w-5 sm:w-8 h-[1px] bg-morandi-warm/30 my-0.5 sm:my-1"></div>
+                    <span class="font-en-serif text-[9px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-morandi-textMuted font-medium">Secs</span>
                 </div>
             </div>
         </div>
@@ -217,18 +213,17 @@
                 <span class="font-en-serif text-xs uppercase tracking-[0.3em] text-morandi-warm font-semibold block mb-2">
                     About
                 </span>
-                <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wider">
+                <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wider break-keep">
                     關於我們
                 </h2>
             </div>  
 
             <!-- V-Card Wrapper -->
-            <div class="shimmer-card rounded-3xl p-6 sm:p-14 shadow-xl border border-morandi-warm/10 relative overflow-hidden text-center">
-                <!-- Decorative Corner Accents -->
+            <div class="shimmer-card rounded-3xl p-5 sm:p-14 shadow-xl border border-morandi-warm/10 relative overflow-hidden text-center">
                 <div class="absolute -top-10 -left-10 w-32 h-32 bg-morandi-warm/10 rounded-full blur-2xl"></div>
                 <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-morandi-sage/10 rounded-full blur-2xl"></div>
                 
-                <!-- 新郎新娘介紹上方新增圖片（限制寬度不超過謝汶甫、林雅惠字樣，並確保行動裝置不跑版） -->
+                <!-- 新郎新娘介紹上方圖片 -->
                 <div class="max-w-[150px] sm:max-w-[240px] w-full mx-auto mb-6 flex justify-center items-center">
                     <img src="https://raw.githubusercontent.com/Scarlett317/kmweddpig/refs/heads/main/ChatGPT%20Image%202026%E5%B9%B48%E6%9C%8827%E6%97%A5%20%E4%B8%8B%E5%8D%8802_27_06.png" 
                          alt="謝汶甫 & 林雅惠" 
@@ -236,31 +231,31 @@
                 </div>
 
                 <!-- 新郎新娘並排顯示區域 -->
-                <div class="flex flex-row items-center justify-center gap-3 sm:gap-8 mb-10">
+                <div class="flex flex-row items-center justify-center gap-2 sm:gap-8 mb-8 sm:mb-10">
                     <!-- Groom V-Card -->
-                    <div class="flex flex-col items-center space-y-1 sm:space-y-2">
-                        <span class="font-en-serif text-2xl sm:text-3xl font-medium text-[#7B9287]">謝汶甫</span>
-                        <span class="font-en-serif text-lg sm:text-2xl font-medium text-morandi-warmDark">Krata</span>
-                        <span class="text-[12px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">GROOM · 新郎</span>
+                    <div class="flex flex-col items-center space-y-0.5 sm:space-y-2">
+                        <span class="font-en-serif text-xl sm:text-3xl font-medium text-[#7B9287]">謝汶甫</span>
+                        <span class="font-en-serif text-base sm:text-2xl font-medium text-morandi-warmDark">Karta</span>
+                        <span class="text-[11px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">GROOM · 新郎</span>
                     </div>
 
-                    <div class="text-morandi-warm text-xl sm:text-2xl font-serif px-1">&</div>
+                    <div class="text-morandi-warm text-lg sm:text-2xl font-serif px-1">&</div>
 
                     <!-- Bride V-Card -->
-                    <div class="flex flex-col items-center space-y-1 sm:space-y-2">
-                        <span class="font-en-serif text-2xl sm:text-3xl font-medium text-[#7B9287]">林雅惠</span>
-                        <span class="font-en-serif text-lg sm:text-2xl font-medium text-morandi-warmDark">Miya</span>
-                        <span class="text-[12px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">BRIDE · 新娘</span>
+                    <div class="flex flex-col items-center space-y-0.5 sm:space-y-2">
+                        <span class="font-en-serif text-xl sm:text-3xl font-medium text-[#7B9287]">林雅惠</span>
+                        <span class="font-en-serif text-base sm:text-2xl font-medium text-morandi-warmDark">Miya</span>
+                        <span class="text-[11px] sm:text-xs text-morandi-textMuted tracking-widest uppercase">BRIDE · 新娘</span>
                     </div>
                 </div>
 
-                <div class="max-w-xl mx-auto text-morandi-textMain space-y-2 sm:space-y-4 text-[13px] sm:text-lg leading-relaxed font-semibold">
-                    <p class="whitespace-nowrap">「在人海裡遇見你，</p>
-                    <p class="whitespace-nowrap sm:pl-6">從此平凡的日子也有了值得期待的風景。」</p>
+                <div class="max-w-xl mx-auto text-morandi-textMain space-y-2 sm:space-y-4 text-xs sm:text-lg leading-relaxed font-semibold break-keep">
+                    <p class="whitespace-normal sm:whitespace-nowrap">「在人海裡遇見你，</p>
+                    <p class="whitespace-normal sm:whitespace-nowrap sm:pl-6">從此平凡的日子也有了值得期待的風景。」</p>
 
                     <div class="text-[12px] sm:text-base text-morandi-textMuted pt-2">
-                        <p class="text-center whitespace-nowrap">我們準備好攜手步入嶄新章節，</p>
-                        <p class="text-center whitespace-nowrap">誠摯邀請您與我們一同見證這份溫暖的承諾。</p>
+                        <p class="text-center whitespace-normal sm:whitespace-nowrap">我們準備好攜手步入嶄新章節，</p>
+                        <p class="text-center whitespace-normal sm:whitespace-nowrap">誠摯邀請您與我們一同見證這份溫暖的承諾。</p>
                     </div>
                 </div>
             </div>
@@ -269,29 +264,29 @@
 
     <section id="details" class="py-10 px-4 sm:px-6 bg-morandi-bg">
         <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-16">
                 <span class="font-en-serif text-xs uppercase tracking-[0.3em] text-morandi-sageDark font-semibold block mb-2">Wedding Details</span>
-                <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wide">婚禮詳情</h2>
+                <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wide break-keep">婚禮詳情</h2>
             </div>
 
             <div class="bg-white rounded-3xl shadow-lg border border-morandi-warm/10 overflow-hidden">
                 <!-- Ceremony -->
-                <div class="p-6 sm:p-10">
+                <div class="p-5 sm:p-10">
                     <div class="flex items-center justify-between mb-6">
                         <!-- 左側：儀式標題 -->
                         <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-full bg-morandi-warmLight flex items-center justify-center text-morandi-warmDark">
+                            <div class="w-10 h-10 rounded-full bg-morandi-warmLight flex items-center justify-center text-morandi-warmDark shrink-0">
                                 <i class="fa-solid fa-church text-lg"></i>
                             </div>
                             <div>
-                                <h3 class="font-en-serif text-lg sm:text-xl text-morandi-textMain font-semibold">儀式資訊</h3>
+                                <h3 class="font-en-serif text-base sm:text-xl text-morandi-textMain font-semibold">儀式資訊</h3>
                                 <p class="text-[10px] sm:text-xs text-morandi-textMuted tracking-widest">The Holy Ceremony</p>
                             </div>
                         </div>
 
                         <!-- 右側：婚禮日期 -->
                         <div class="text-right">
-                            <p class="font-en-serif text-xl sm:text-3xl text-morandi-sageDark tracking-wider font-semibold">2027.01.23</p>
+                            <p class="font-en-serif text-lg sm:text-3xl text-morandi-sageDark tracking-wider font-semibold">2027.01.23</p>
                             <p class="font-en-serif text-[10px] sm:text-xs text-morandi-textMuted tracking-[0.2em]">SATURDAY</p>
                         </div>
                     </div>
@@ -299,25 +294,25 @@
                     <!-- 儀式內容 -->
                     <div class="space-y-4 text-sm sm:text-base text-morandi-textMain">
                         <div class="flex items-start space-x-3">
-                            <i class="fa-regular fa-clock mt-1 text-morandi-warm"></i>
+                            <i class="fa-regular fa-clock mt-1 text-morandi-warm shrink-0"></i>
                             <div>
                                 <p class="font-medium">時間</p>
-                                <p class="text-morandi-textMuted text-sm">10:45 入場 <span class="mx-1">|</span> 11:00 典禮開始</p>
+                                <p class="text-morandi-textMuted text-xs sm:text-sm">10:45 入場 <span class="mx-1">|</span> 11:00 典禮開始</p>
                             </div>
                         </div>
 
                         <div class="flex items-start space-x-3">
-                            <i class="fa-solid fa-location-dot mt-1 text-morandi-warm"></i>
+                            <i class="fa-solid fa-location-dot mt-1 text-morandi-warm shrink-0"></i>
                             <div>
                                 <p class="font-medium">地點</p>
-                                <p class="text-morandi-textMuted text-sm"><span class="no-wrap">頂粵吉品</span> 2F 證婚堂</p>
+                                <p class="text-morandi-textMuted text-xs sm:text-sm"><span class="no-wrap">頂粵吉品</span> 2F 證婚堂</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 儀式底部 -->
                     <div class="mt-4 pt-2 border-t border-gray-50 flex items-center justify-end gap-2">
-                        <span class="text-xs text-morandi-warm font-medium uppercase tracking-wider">莊嚴 · 浪漫 · 祝福</span>
+                        <span class="text-[11px] sm:text-xs text-morandi-warm font-medium uppercase tracking-wider">莊嚴 · 浪漫 · 祝福</span>
                         <i class="fa-solid fa-heart text-morandi-warm/40"></i>
                     </div>
                 </div>
@@ -326,13 +321,13 @@
                 <div class="border-t border-morandi-warm/10 mx-6 sm:mx-10"></div>
 
                 <!-- Banquet -->
-                <div class="p-6 sm:p-10">
+                <div class="p-5 sm:p-10">
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 rounded-full bg-morandi-warmLight flex items-center justify-center text-morandi-warmDark">
+                        <div class="w-10 h-10 rounded-full bg-morandi-warmLight flex items-center justify-center text-morandi-warmDark shrink-0">
                             <i class="fa-solid fa-utensils text-lg"></i>
                         </div>
                         <div>
-                            <h3 class="font-en-serif text-lg sm:text-xl text-morandi-textMain font-semibold">午宴資訊</h3>
+                            <h3 class="font-en-serif text-base sm:text-xl text-morandi-textMain font-semibold">午宴資訊</h3>
                             <p class="text-[10px] sm:text-xs text-morandi-textMuted tracking-widest">The Wedding Banquet</p>
                         </div>
                     </div>
@@ -340,25 +335,25 @@
                     <!-- 午宴內容 -->
                     <div class="space-y-4 text-sm sm:text-base text-morandi-textMain">
                         <div class="flex items-start space-x-3">
-                            <i class="fa-regular fa-clock mt-1 text-morandi-warm"></i>
+                            <i class="fa-regular fa-clock mt-1 text-morandi-warm shrink-0"></i>
                             <div>
                                 <p class="font-medium">時間</p>
-                                <p class="text-morandi-textMuted text-sm">11:30 入席 <span class="mx-1">|</span> 12:00 準時開席</p>
+                                <p class="text-morandi-textMuted text-xs sm:text-sm">11:30 入席 <span class="mx-1">|</span> 12:00 準時開席</p>
                             </div>
                         </div>
 
                         <div class="flex items-start space-x-3">
-                            <i class="fa-solid fa-location-dot mt-1 text-morandi-warm"></i>
+                            <i class="fa-solid fa-location-dot mt-1 text-morandi-warm shrink-0"></i>
                             <div>
                                 <p class="font-medium">地點</p>
-                                <p class="text-morandi-textMuted text-sm"><span class="no-wrap">頂粵吉品</span> 2F 宴會廳</p>
+                                <p class="text-morandi-textMuted text-xs sm:text-sm"><span class="no-wrap">頂粵吉品</span> 2F 宴會廳</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 午宴底部 -->
                     <div class="mt-4 pt-2 border-t border-gray-50 flex items-center justify-end gap-2">
-                        <span class="text-xs text-morandi-warm font-medium uppercase tracking-wider">歡聚 · 美食 · 喜悅</span>
+                        <span class="text-[11px] sm:text-xs text-morandi-warm font-medium uppercase tracking-wider">歡聚 · 美食 · 喜悅</span>
                         <i class="fa-solid fa-wine-glass text-morandi-warm/40"></i>
                     </div>
                 </div>
@@ -366,20 +361,20 @@
         </div>
     </section>
 
-    <section id="Directions" class="py-20 px-4 sm:px-6 bg-morandi-bg">
+    <section id="Directions" class="py-16 px-4 sm:px-6 bg-morandi-bg">
         <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-14">
+            <div class="text-center mb-10">
                 <span class="font-en-serif text-xs uppercase tracking-[0.3em] text-morandi-sageDark font-semibold block mb-2">Getting There</span>
-                <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wide mb-3">交通指引</h2>
+                <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wide mb-3 break-keep">交通指引</h2>
             </div>
 
             <!-- Venue Info Badge -->
-            <div class="mb-8 p-6 shimmer-card rounded-2xl border border-morandi-warm/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="mb-6 p-5 sm:p-6 shimmer-card rounded-2xl border border-morandi-warm/15 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="text-center sm:text-left">
-                    <h3 class="text-lg font-semibold text-[#7B9287]">
+                    <h3 class="text-base sm:text-lg font-semibold text-[#7B9287]">
                         <span class="no-wrap">頂粵吉品</span>
                     </h3>
-                    <p class="text-sm text-morandi-textMuted mt-1">
+                    <p class="text-xs sm:text-sm text-morandi-textMuted mt-1">
                         <span class="no-wrap">台中市西屯區市政南一路288號</span>
                     </p>
                 </div>
@@ -391,34 +386,33 @@
             </div>
 
             <!-- Transportation Image -->
-            <div class="shimmer-card rounded-3xl border border-morandi-warm/10 shadow-xl overflow-hidden p-4 sm:p-6">
-                <img
-                    src="https://raw.githubusercontent.com/Scarlett317/kmweddpig/refs/heads/main/S__777388035.jpg"
-                    alt="頂粵吉品交通指引"
-                    class="w-full h-auto object-contain rounded-2xl">
+            <div class="shimmer-card rounded-3xl border border-morandi-warm/10 shadow-xl overflow-hidden p-3 sm:p-6">
+                <img src="https://raw.githubusercontent.com/Scarlett317/kmweddpig/refs/heads/main/S__777388035.jpg"
+                     alt="頂粵吉品交通指引"
+                     class="w-full h-auto object-contain rounded-2xl">
             </div>
         </div>
     </section>
 
     <section id="rsvp" class="py-10 px-4 sm:px-6 bg-morandi-bg">
         <div class="max-w-2xl mx-auto">
-            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-morandi-warm/10">
-                <div class="text-center mb-10">
+            <div class="bg-white rounded-3xl p-5 sm:p-10 shadow-xl border border-morandi-warm/10">
+                <div class="text-center mb-8">
                     <span class="font-en-serif text-xs uppercase tracking-[0.3em] text-morandi-warm font-semibold block mb-2">Awaiting Your Reply</span>
-                    <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wide mb-3">出席回函</h2>
+                    <h2 class="font-en-serif text-2xl sm:text-3xl text-morandi-textMain tracking-wide mb-3 break-keep">出席回函</h2>
                 </div>
 
                 <!-- Hidden Iframe Target for Form Submission -->
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-                <!-- RSVP Form -->
+                <!-- RSVP Form with strictly parsed Entry IDs & Empty Inputs -->
                 <form id="wedding-form" 
                       action="https://docs.google.com/forms/d/e/1FAIpQLSeEk_bRDSdsxYHGLLfEU28Lpki3yzdXu07OgZ5bdFXO3125VA/formResponse" 
                       method="POST" 
                       target="hidden_iframe" 
                       class="space-y-6">
 
-                    <!-- Field 1: Name -->
+                    <!-- Field 1: Name (entry.1886153940) -->
                     <div>
                         <label for="entry_1886153940" class="block text-sm uppercase tracking-wider font-semibold text-morandi-textMain mb-1">
                             姓名 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">NAME</span> <span class="text-red-400">*</span>
@@ -428,10 +422,10 @@
                                name="entry.1886153940" 
                                required 
                                placeholder="請輸入姓名"
-                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
                     </div>
 
-                    <!-- Field 2: Email -->
+                    <!-- Field 2: Email (entry.1312972387) -->
                     <div>
                         <label for="entry_1312972387" class="block text-sm uppercase tracking-wider font-semibold text-morandi-textMain mb-1">
                             電子信箱 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">EMAIL</span> <span class="text-red-400">*</span>
@@ -441,10 +435,10 @@
                                name="entry.1312972387" 
                                required 
                                placeholder="example@mail.com"
-                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
                     </div>
 
-                    <!-- Field 3: Relationship -->
+                    <!-- Field 3: Relationship (entry.2044940604) -->
                     <div>
                         <label for="entry_2044940604" class="block text-sm uppercase tracking-wider font-semibold text-morandi-textMain mb-1">
                             與新人的關係 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">RELATIONSHIP</span> <span class="text-red-400">*</span>
@@ -452,7 +446,7 @@
                         <select id="entry_2044940604" 
                                 name="entry.2044940604" 
                                 required 
-                                class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                                class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
                             <option value="" disabled selected>請選擇您的關係</option>
                             <option value="男方家人、親戚">男方家人、親戚</option>
                             <option value="男方同學、友人">男方同學、友人</option>
@@ -464,13 +458,14 @@
                         </select>
                     </div>
 
-                    <!-- Field 4: Attendance Count (已移除儀式人數欄位) -->
+                    <!-- Field 4: Banquet Guests Count (entry.422058548) -->
                     <div>
                         <label for="entry_422058548" class="block mb-1">
                             <span class="text-sm uppercase tracking-wider font-semibold text-morandi-textMain">午宴人數
                                 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">BANQUET GUESTS</span> 
                                 <span class="text-red-400">*</span>
-                            </label>
+                            </span>
+                        </label>
                         <input type="number" 
                                id="entry_422058548" 
                                name="entry.422058548" 
@@ -479,13 +474,13 @@
                                required 
                                placeholder="人數"
                                oninput="handleGuestCountChange(this.value)"
-                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                               class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
+                        <p class="text-[11px] sm:text-xs text-morandi-textMuted mt-1.5 break-keep">※ 若無法出席，請填寫 "0"；填寫出席人數後，請繼續作答。</p>
                     </div>
-                    <p class="text-xs text-morandi-textMuted mt-1 whitespace-nowrap">※ 若無法出席，請填寫"0"；填寫出席人數後，請繼續作答。</p>
 
-                    <!-- Dynamic Section -->
+                    <!-- Dynamic Section for Attending Guests -->
                     <div id="dynamic-guest-details" class="space-y-6 hidden border-t border-gray-100 pt-6">
-                        <!-- Field 5: Children Count & Age -->
+                        <!-- Field 5: Children Count & Age (entry.1785125515) -->
                         <div>
                             <label for="entry_1785125515" class="block text-sm uppercase tracking-wider font-semibold text-morandi-textMain mb-1">
                                 兒童人數 / 年齡 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">CHILDREN COUNT & AGE</span>
@@ -494,10 +489,10 @@
                                    id="entry_1785125515" 
                                    name="entry.1785125515" 
                                    placeholder="請填寫兒童人數及年齡，例如：2位（3歲、7歲）。"
-                                   class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                                   class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
                         </div>
 
-                        <!-- Fields 6 & 7 -->
+                        <!-- Fields 6 & 7: High Chairs (entry.362097052) & Vegetarians (entry.569320191) -->
                         <div class="grid grid-cols-2 gap-3 sm:gap-6">
                             <div>
                                 <label for="entry_362097052" class="block mb-1">
@@ -506,7 +501,7 @@
                                 </label>
                                 <select id="entry_362097052" 
                                         name="entry.362097052" 
-                                        class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                                        class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -522,7 +517,7 @@
                                 </label>
                                 <select id="entry_569320191" 
                                         name="entry.569320191" 
-                                        class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-sm transition-all rounded-none focus:ring-0">
+                                        class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -531,9 +526,25 @@
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Field 8: Paper Invitation Card Need (entry.1260223395) -->
+                        <div>
+                            <label for="entry_1260223395" class="block text-sm uppercase tracking-wider font-semibold text-morandi-textMain mb-1">
+                                紙本喜帖需求 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">PAPER INVITATION</span> <span class="text-red-400">*</span>
+                            </label>
+                            <select id="entry_1260223395" 
+                                    name="entry.1260223395" 
+                                    class="w-full px-2 py-2.5 bg-transparent border-b border-morandi-warm/50 focus:border-morandi-sageDark outline-none text-base transition-all rounded-none focus:ring-0">
+                                <option value="" disabled selected>請選擇喜帖需求</option>
+                                <option value="需要！請寄給我。">需要！請寄給我。</option>
+                                <option value="不需要～只寄電子喜帖即可。">不需要～只寄電子喜帖即可。</option>
+                            </select>
+                            <p class="text-[11px] sm:text-xs text-morandi-textMuted mt-1.5 break-keep">※ 如需紙本喜帖，請在下方祝福欄補充收件人/地址資訊</p>
+                        </div>
                     </div>
 
-                    <!-- Field 8: Blessings Message -->
+
+                    <!-- Field 9: Blessing Message (entry.1559404339) -->
                     <div>
                         <label for="entry_1559404339" class="block text-sm uppercase tracking-wider font-semibold text-morandi-textMain mb-2">
                             給新人的祝福 <span class="font-en-serif font-normal text-[12px] text-morandi-textMuted ml-1">BLESSING</span>
@@ -542,7 +553,7 @@
                                   name="entry.1559404339" 
                                   rows="4" 
                                   placeholder="留下您的悄悄話..."
-                                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-warm focus:ring-1 focus:ring-morandi-warm outline-none text-sm transition-all resize-none"></textarea>
+                                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-morandi-warm focus:ring-1 focus:ring-morandi-warm outline-none text-base transition-all resize-none"></textarea>
                     </div>
 
                     <!-- Submit Button -->
@@ -566,7 +577,7 @@
                 <i class="fa-solid fa-heart"></i>
             </div>
             <h3 class="font-en-serif text-2xl font-semibold text-morandi-textMain mb-2">Thank You!</h3>
-            <p class="text-sm text-morandi-textMain mb-6">我們已收到您的回函！非常期待與您一同分享這份喜悅。</p>
+            <p class="text-sm text-morandi-textMain mb-6 break-keep">我們已收到您的回函！非常期待與您一同分享這份喜悅。</p>
             <button onclick="closeSuccessModal()" class="w-full py-3 rounded-xl bg-morandi-warm text-white text-xs tracking-widest uppercase hover:bg-morandi-warmDark transition-colors">
                 關閉 CLOSE
             </button>
@@ -611,11 +622,17 @@
         function handleGuestCountChange(val) {
             const guestCount = parseInt(val, 10);
             const dynamicSection = document.getElementById('dynamic-guest-details');
+            const paperSelect = document.getElementById('entry_1260223395');
 
             if (!isNaN(guestCount) && guestCount > 0) {
                 dynamicSection.classList.remove('hidden');
+                if (paperSelect) paperSelect.required = true;
             } else {
                 dynamicSection.classList.add('hidden');
+                if (paperSelect) {
+                    paperSelect.required = false;
+                    paperSelect.value = '';
+                }
             }
         }
 
